@@ -3,21 +3,13 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 
 const Managecomments = () => {
     const [photo, setPhoto] = React.useState([]);
-    const [photobyid, setPhotobyid] = React.useState([]);
     const navigate = useNavigate();
     const params = useParams();
+    var p_id ;
 
     useEffect(() => {
         getalllist();
-    //    getalllistphoto();
     }, [])
-
-    const getalllistphoto = async () => {
-        let result = await fetch(`http://localhost:5000/getPhotosbyid/${params.id}`);
-        result = await result.json();
-        setPhotobyid(result)
-    }
-    console.warn("photobyid", photobyid);
 
     const getalllist = async () => {
         let result = await fetch("http://localhost:5000/getcomments");
@@ -25,8 +17,9 @@ const Managecomments = () => {
         setPhoto(result)
     }
     console.warn("photo", photo);
-    // console.warn("")
 
+    // getPhotosbyid
+    
     const deleteProduct = async(id)=>{
         let result = await fetch(`http://localhost:5000/delete_cmt/${id}`,{
             method:"Delete"

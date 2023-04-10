@@ -39,7 +39,9 @@ const Photographerlistv = () => {
                         <th>First name</th>
                         <th>Last name</th>
                         {/* <th>enrollment no</th> */}
+
                         <th>Email id</th>
+                        <th>Institute</th>
                         <th>Contact no</th>
                         
                         {/* <th>operation</th> */}
@@ -55,6 +57,7 @@ const Photographerlistv = () => {
                                 <td className='tdcss'>{item.lname}</td>
                                 {/* <td className='tdcss'>{item.enrollmentno}</td> */}
                                 <td className='tdcss'>{item.emailid}</td>
+                                <td className='tdcss'>{item.instname}</td>
                                 <td className='tdcss'>{item.contactno}</td>
                                 
                                 {/* <td className='tdcss'><button onClick={()=>deleteProduct(item._id)}>Delete</button></td> */}

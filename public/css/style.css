@@ -718,8 +718,8 @@ section{
   }
 
   .tile {
-    width: 250px;
-    height: 250px;
+    width: 238px;
+    height: 245px;
     margin: 10px;
     background-color: #99aeff;
     display: inline-block;

@@ -17,7 +17,7 @@ const Photoviewfullv = () => {
     const u_name = JSON.parse(localStorage.getItem("user")).fname;
     console.warn(u_name)
     const p_id = params.id;
-    //const photopath = photo[0].photo;
+  //const photopath = photo[0].photo;
     
     console.warn(u_id)
     
@@ -51,6 +51,7 @@ const Photoviewfullv = () => {
         setfcmt(result)
     }
     console.warn("comment", fcommet);
+    console.count(fcommet);
 
     return (
         <div className='divmargin' style={{ marginTop: "10%" }}>
@@ -107,6 +108,7 @@ const Photoviewfullv = () => {
                             fcommet.length > 0 ? fcommet.map((item, index) => (
                                 <tr key={item._id} className='trcss'>
                                     {/* <td className='tdcss'>{index + 1}</td> */}
+                                    <td className='tdcss'>{item.u_name}</td>
                                     <td className='tdcss'>{item.comment}</td>
                                 </tr>
 

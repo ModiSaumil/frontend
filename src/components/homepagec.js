@@ -64,7 +64,7 @@ const Homepage = () => {
                 <div class="swiper product-slider">
 
                     <div class="divmargin" >
-                        <div class="wrap" style={{ marginLeft: "80px" }} >
+                        <div class="wrap" >
 
                             {
                                 photos.length > 0 ? photos.map((item, index) => (
