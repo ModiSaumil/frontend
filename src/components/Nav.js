@@ -40,18 +40,17 @@ const Nav = () => {
         <div>
             <header class="header">
 
-                <a href="#" class="logo"> <i class="fas fa-camera"></i> UTU Gallery </a>
+                <a href="#" class="logo" > <i class="fas fa-camera"></i> UTU Gallery </a>
 
                 {auth ? <nav class="navbar">
                     <a className='logout' >Welcome, <Link to={"/profilea/" + JSON.parse(auth)._id}>{JSON.parse(auth).fname} {JSON.parse(auth).lname} </Link></a>
 
-                    <a><button className='dropbtn'><Link to="/adminphotolist">All Photos</Link></button>
-                    </a>
-                    <a><button className='dropbtn'><Link to="/managecmt">Manage Comments</Link></button>
-                    </a>
+                    <a><Link to="/adminphotolist">All Photos</Link></a>
+                    {/* <a><button className='dropbtn'><Link to="/managecmt">Manage Comments</Link></button>
+                    </a> */}
                     <a>
-                        <div className='dropdownn'>
-                            <button className='dropbtn'>Manage Category</button>
+                        <div className='dropdownn' >
+                            <button className='dropbtn' style={{fontSize:"16px"}} >Manage Category</button>
                             <div className='dropdownn-content'>
                                 <li><Link to="/categories">Add Category</Link></li>
                                 <li><Link to="/managecategories">Manage Category</Link></li>
@@ -61,7 +60,7 @@ const Nav = () => {
 
                     <a>
                         <div className='dropdownn'>
-                            <button className='dropbtn'>Manage Institute</button>
+                            <button className='dropbtn' style={{fontSize:"16px"}}>Manage Institute</button>
                             <div className='dropdownn-content'>
                                 <li><Link to="/institutes">Add institute</Link></li>
                                 <li><Link to="/manageInstitute">Manage institute</Link></li>
@@ -71,17 +70,14 @@ const Nav = () => {
 
                     <a>
                         <div className='dropdownn'>
-                            <button className='dropbtn'>Manage User</button>
+                            <button className='dropbtn' style={{fontSize:"16px"}}>Manage User</button>
                             <div className='dropdownn-content'>
                                 <li><Link to="/photoglist">Photographers list</Link></li>
                                 <li><Link to="/viewerlist">Viewer list</Link></li>
                             </div>
                         </div>
                     </a>
-                    <a>
-                        <div className='dropdownn'>
-                            <button className='dropbtn'><Link onClick={logout} to="/SignUp">Logout</Link></button>
-                        </div>  </a>
+                    <a><Link onClick={logout} to="/SignUp">Logout</Link></a>
                 </nav>
                     :
                     <nav class="navbar">

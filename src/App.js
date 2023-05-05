@@ -60,6 +60,7 @@ import ManageProfileimageviewer from "./components/viewer/manageprofileimage";
 import ManageProfileimageph from "./components/photographer/manageprofileimagep";
 import ManageProfileimagead from "./components/admin/manageprofileimagead";
 import Managecomments from "./components/admin/managecomments";
+import Managecommentspg from "./components/photographer/managecmtpg";
 function App() {
   return (
     <div>
@@ -91,7 +92,7 @@ function App() {
           <Route element={<Privatecomponentphotographer />}>
             <Route path='/profilegview/:id' element={<Profilephotogview />}></Route>
             <Route path='/profileimageph' element={<ManageProfileimageph />}></Route>
-
+            <Route path='/managecmts' element={<Managecommentspg />}></Route>
             <Route path='/photolist' element={<Photoview />}></Route>
             <Route path='/photoadd' element={<AddProduct />}></Route>
             <Route path='/photoupdate/:id' element={<Photoupdate />}></Route>

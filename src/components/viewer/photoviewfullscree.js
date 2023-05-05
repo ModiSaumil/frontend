@@ -104,12 +104,13 @@ const Photoviewfullv = () => {
                         </td>
 
                     </tr>
+                    <tr>Comments :-</tr>
                     <tr>{
                             fcommet.length > 0 ? fcommet.map((item, index) => (
                                 <tr key={item._id} className='trcss'>
                                     {/* <td className='tdcss'>{index + 1}</td> */}
-                                    <td className='tdcss'>{item.u_name}</td>
-                                    <td className='tdcss'>{item.comment}</td>
+                                    <td className='tdcss' style={{padding:"5px"}}>{item.u_name}</td>
+                                    <td className='tdcss' style={{padding:"5px"}}>{item.comment}</td>
                                 </tr>
 
                             ))

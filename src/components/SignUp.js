@@ -290,7 +290,7 @@ const Signinpage = () => {
 
             <section class="features" id="features">
 
-                <h1 class="heading"> Sign <span> In </span> </h1>
+                <h1 class="heading"> Sign <span> Up </span> </h1>
 
                 <input className="inputbox" value={fname} onChange={(e) => { setFname(e.target.value); validateFirstName(); }} type="text" placeholder="Enter First Name" required></input>
                 <span

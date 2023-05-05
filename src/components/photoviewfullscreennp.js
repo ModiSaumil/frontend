@@ -27,15 +27,15 @@ const Photoviewfullacreenv = () => {
             <section class="products" id="products">
                 <div class="swiper product-slider">
                     <div class="swiper-wrapper">
-                        <table className='tablecss'>
-                            <tbody>
+                        <table className='tablecss' >
+                            <tbody >
                                 {
                                     photo.length > 0 ? photo.map((item, index) => (
-                                        <div class="swiper-slide box">
-                                            <tr key={item._id}>
-                                                <td>
+                                        <div class="swiper-slide box" >
+                                            <tr key={item._id} >
+                                                <td >
                                                     {item ?
-                                                        <img src={`http://localhost:5000/${item.photo}`} alt={item.imgname} />
+                                                        <img src={`http://localhost:5000/${item.photo}`} alt={item.imgname} style={{height:"100%",width:"100%"}}/>
 
                                                         :
                                                         <span>deleted</span>

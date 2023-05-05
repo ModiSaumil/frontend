@@ -4,10 +4,13 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 const Photoviewfull = () => {
     const [photo, setPhoto] = React.useState([]);
     const [comment, setCmt] = React.useState("");
+    const [fcommet, setfcmt] = React.useState([]);
+
     const navigate = useNavigate();
     const params = useParams();
     useEffect(() => {
         getalllist();
+        getalllistofcmt();
     }, [])
 
     const u_id = JSON.parse(localStorage.getItem("user"))._id;
@@ -35,11 +38,30 @@ const Photoviewfull = () => {
     }
     console.warn("photo", photo);
 
+    const deleteProduct = async(id)=>{
+        let result = await fetch(`http://localhost:5000/delete_cmt/${id}`,{
+            method:"Delete"
+        });
+        result = await result.json()
+        if(result){
+            getalllistofcmt();
+        }
+    }
+
+
+    const getalllistofcmt = async () => {
+        let result = await fetch(`http://localhost:5000/getcommentbyphoto/${p_id}`);
+        result = await result.json();
+        setfcmt(result)
+    }
+    console.warn("comment", fcommet);
+    console.count(fcommet);
+
     return (
         <div className='divmargin' style={{marginTop:"10%"}}>
             {/* <h3>All Photos list</h3> */}
             {/* <input className="animation" onChange={searchHandle} type="text" placeholder='enter to search..'></input> */}
-            <table className='tablecss'>
+            <table className='tablecss' style={{height:"600px",width:"auto"}}>
                 {/* <thead>
                     <tr className='trcss'>
                         <th>SR No.</th>
@@ -77,13 +99,29 @@ const Photoviewfull = () => {
                                 Found!</strong></td></tr>
                     }
                     <tr>
-                        <td>
+                        {/* <td>
                          <input className="inputbox"  type="text" 
                          value={comment } onChange={(e) => setCmt(e.target.value)}
                           placeholder='enter to add comment..'></input> 
                          <button style={{padding:"5px", width: "70px",backgroundColor: "orange", border:"none",borderRadius:"10px",cursor: "pointer"}} className="btnsn" onClick={addcomment} type="button">Submit</button>
 
-                        </td>
+                        </td> */}
+
+                            Comments :-
+                    </tr>
+                    <tr>{
+                            fcommet.length > 0 ? fcommet.map((item, index) => (
+                                <tr key={item._id} className='trcss'>
+                                    {/* <td className='tdcss'>{index + 1}</td> */}
+                                    <td className='tdcss' style={{padding:"5px"}}>{item.u_name}</td>
+                                    <td className='tdcss' style={{padding:"5px"}}>{item.comment}</td>
+                                    <button style={{padding:"5px", width: "70px",backgroundColor: "orange", border:"none",borderRadius:"10px",cursor: "pointer"}} onClick={()=>deleteProduct(item._id)}>Delete</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                                </tr>
+
+                            ))
+                                : <tr> <td><strong>No Comments
+                                    Found!</strong></td></tr>
+                        }
                     </tr>
                 </tbody>
             </table>
